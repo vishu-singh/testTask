@@ -1,13 +1,20 @@
-const Card = () => {
+type CardProps = {
+  showButton: boolean;
+  data:any
+};
+
+const Card = ({showButton,data}:CardProps) => {
+ 
+
   return (
     <div className="cl cl-yellow">
       <div className="image-box">
-          <img className="thumb" src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
+          <img className="thumb" src={data.image} alt="" />
       </div>
       <div className="text-container">
-        <h6>Title 05</h6>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-        <button className="read-more">Read More <i className="fas fa-angle-right"></i></button>
+        <h6>{data.title}</h6>
+        <p>{data.description}</p>
+        {showButton&&<button className="read-more shadow-lg mt-4">Read more <i className="fas fa-angle-right ml-4"></i></button>}
         </div>
     </div>
   );
